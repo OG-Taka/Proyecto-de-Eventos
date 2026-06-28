@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Eventos — Gestor</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+  <p><a href="../index.html">← Inicio</a></p>
+
+  <nav>
+    <a href="eventos.html"><strong>Eventos</strong></a> |
+    <a href="participantes.html">Participantes</a>
+  </nav>
+
+  <hr>
+  <h1>Eventos</h1>
+  <p id="mensaje"></p>
+
+  <h2 id="titulo-form-evento">Nuevo Evento</h2>
+  <form id="form-evento">
+    <input type="hidden" id="evento-id" />
+    <label>Nombre: <input type="text" id="evento-nombre" required /></label><br><br>
+    <label>Fecha: <input type="date" id="evento-fecha" required /></label><br><br>
+    <label>Lugar: <input type="text" id="evento-lugar" required /></label><br><br>
+    <label>Capacidad: <input type="number" id="evento-capacidad" min="1" required /></label><br><br>
+    <label>Estado:
+      <select id="evento-estado">
+        <option value="Abierto">Abierto</option>
+        <option value="Cerrado">Cerrado</option>
+        <option value="Finalizado">Finalizado</option>
+      </select>
+    </label><br><br>
+    <button type="submit" id="btn-guardar-evento">Guardar Evento</button>
+    <button type="button" id="btn-cancelar-evento" style="display:none">Cancelar</button>
+  </form>
+
+  <hr>
+  <h2>Lista de Eventos</h2>
+  <div id="lista-eventos"></div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/eventos.js"></script>
+  <script> cargarEventos(); </script>
+
+</body>
+</html>

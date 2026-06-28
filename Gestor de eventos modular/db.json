@@ -1,0 +1,20 @@
+{
+  "eventos": [
+    {
+      "id": 1,
+      "nombre": "Taller de JavaScript",
+      "fecha": "2025-07-20",
+      "lugar": "Aula 3",
+      "capacidad": 30,
+      "estado": "Abierto"
+    }
+  ],
+  "participantes": [
+    {
+      "id": 1,
+      "nombre": "Martín López",
+      "correo": "martin@email.com",
+      "telefono": "381-555-0173"
+    }
+  ]
+}

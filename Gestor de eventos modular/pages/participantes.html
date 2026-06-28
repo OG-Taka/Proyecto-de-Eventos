@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Participantes — Gestor</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+  <p><a href="../index.html">← Inicio</a></p>
+
+  <nav>
+    <a href="eventos.html">Eventos</a> |
+    <a href="participantes.html"><strong>Participantes</strong></a>
+  </nav>
+
+  <hr>
+  <h1>Participantes</h1>
+  <p id="mensaje"></p>
+
+  <h2 id="titulo-form-participante">Nuevo Participante</h2>
+  <form id="form-participante">
+    <input type="hidden" id="participante-id" />
+    <label>Nombre completo: <input type="text" id="participante-nombre" required /></label><br><br>
+    <label>Correo electrónico: <input type="email" id="participante-correo" required /></label><br><br>
+    <label>Teléfono: <input type="tel" id="participante-telefono" required /></label><br><br>
+    <button type="submit" id="btn-guardar-participante">Guardar Participante</button>
+    <button type="button" id="btn-cancelar-participante" style="display:none">Cancelar</button>
+  </form>
+
+  <hr>
+  <h2>Lista de Participantes</h2>
+  <div id="lista-participantes"></div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/participantes.js"></script>
+  <script> cargarParticipantes(); </script>
+
+</body>
+</html>
