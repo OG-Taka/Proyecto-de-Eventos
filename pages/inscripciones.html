@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inscripciones</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"> </script>
+
+</head>
+<body>
+    <p> <a href="../index.html">← Inicio </a></p>
+    <nav>
+        <a href="eventos.html">Eventos</a>|
+        <a href="participantes.html">Participantes</a>|
+        <a href="inscripciones.html"><strong>inscripciones</strong></a>
+    </nav>
+    <hr>
+    <h1>inscripciones</h1>
+    <p id="Mesnaje"></p>
+
+    <label>Selecionar Evento:
+        <select id="select-evento-inscripcion">
+            <option value="">-- Elegir evento --</option>
+        </select>
+    </label>
+    <hr>
+    
+    <form id="form-inscripcion" style="display: none;">
+    <h2>Inscrbir Participante</h2>
+    <label>Participante:
+    <select id="select-participante-inscripcion">
+        <option value=""> --Elegir participante --</option>
+    </select>
+    </label><br><br>
+    <button type="submit">Inscrbir</button>
+    </form>
+
+    <div id="lista-inscripciones"></div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/inscripciones.js"></script>
+    <script> cargarSelectorEventos(); </script>
+
+
+</body>
+</html>
