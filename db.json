@@ -8,5 +8,13 @@
       "capacidad": 30,
       "estado": "Abierto"
     }
+  ],
+  "participantes": [
+    {
+      "id": 1,
+      "nombre": "Martín López",
+      "correo": "martin@email.com",
+      "telefono": "381-555-0173"
+    }
   ]
 }

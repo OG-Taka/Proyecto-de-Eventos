@@ -1,8 +1,6 @@
-// ============================================================
-// eventos.js — CRUD de Eventos
-// ============================================================
+// eventos.js — crud de eventos
 
-// ---------- LEER ----------
+// leer
 async function cargarEventos() {
   try {
     const response = await api.get('/eventos');
@@ -46,7 +44,7 @@ function renderizarEventos(eventos) {
   });
 }
 
-// ---------- CREAR / ACTUALIZAR ----------
+// crear / actualizar
 document.getElementById('form-evento').addEventListener('submit', async (e) => {
   e.preventDefault();
 
@@ -75,7 +73,7 @@ document.getElementById('form-evento').addEventListener('submit', async (e) => {
   }
 });
 
-// ---------- PREPARAR EDICIÓN ----------
+// preparar edición
 async function prepararEdicionEvento(id) {
   try {
     const response = await api.get(`/eventos/${id}`);
@@ -88,27 +86,27 @@ async function prepararEdicionEvento(id) {
     document.getElementById('evento-capacidad').value = evento.capacidad;
     document.getElementById('evento-estado').value    = evento.estado;
 
-    document.getElementById('titulo-form-evento').textContent       = 'Editar Evento';
-    document.getElementById('btn-guardar-evento').textContent       = 'Actualizar Evento';
-    document.getElementById('btn-cancelar-evento').style.display   = 'inline';
+    document.getElementById('titulo-form-evento').textContent     = 'Editar Evento';
+    document.getElementById('btn-guardar-evento').textContent     = 'Actualizar Evento';
+    document.getElementById('btn-cancelar-evento').style.display = 'inline';
   } catch (error) {
     mostrarMensaje('Error al cargar el evento');
     console.error(error);
   }
 }
 
-// ---------- CANCELAR EDICIÓN ----------
+// cancelar edición
 document.getElementById('btn-cancelar-evento').addEventListener('click', resetFormEvento);
 
 function resetFormEvento() {
   document.getElementById('form-evento').reset();
-  document.getElementById('evento-id').value                     = '';
-  document.getElementById('titulo-form-evento').textContent      = 'Nuevo Evento';
-  document.getElementById('btn-guardar-evento').textContent      = 'Guardar Evento';
-  document.getElementById('btn-cancelar-evento').style.display  = 'none';
+  document.getElementById('evento-id').value                    = '';
+  document.getElementById('titulo-form-evento').textContent     = 'Nuevo Evento';
+  document.getElementById('btn-guardar-evento').textContent     = 'Guardar Evento';
+  document.getElementById('btn-cancelar-evento').style.display = 'none';
 }
 
-// ---------- ELIMINAR ----------
+// eliminar
 async function eliminarEvento(id) {
   try {
     await api.delete(`/eventos/${id}`);
