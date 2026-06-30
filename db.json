@@ -39,25 +39,18 @@
   ],
   "inscripciones": [
     {
-      "eventoId": null,
-      "participanteId": 1,
-      "fecha": "29/6/2026",
+      "eventoId": "1",
+      "participanteId": "1",
+      "fecha": "30/6/2026",
       "estado": "Confirmado",
-      "id": "OxcWsjn7wCE"
+      "id": "HkI57xpbQgo"
     },
     {
-      "eventoId": null,
-      "participanteId": null,
-      "fecha": "29/6/2026",
+      "eventoId": "1",
+      "participanteId": "f_mHU0SttqU",
+      "fecha": "30/6/2026",
       "estado": "Confirmado",
-      "id": "3t4PjTtrx1c"
-    },
-    {
-      "eventoId": 1,
-      "participanteId": 1,
-      "fecha": "29/6/2026",
-      "estado": "Confirmado",
-      "id": "DZw3G2Nfwp4"
+      "id": "NoFV8P-tlCs"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

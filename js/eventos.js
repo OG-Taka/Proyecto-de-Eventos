@@ -21,9 +21,10 @@ async function renderizarEventos(eventos) {
   }
 
   for (const evento of eventos) {
-    // contar inscriptos actuales del evento
-    const resIns = await api.get(`/inscripciones?eventoId=${evento.id}`);
-    const inscriptos = resIns.data.length;
+    const resIns = await api.get('/inscripciones');
+    const inscriptos = resIns.data.filter(
+      (ins) => String(ins.eventoId) === String(evento.id)
+    ).length;
 
     const bloque = document.createElement('div');
     bloque.innerHTML = `

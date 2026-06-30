@@ -55,8 +55,11 @@ document.getElementById('select-evento-inscripcion').addEventListener('change', 
 // leer
 async function cargarInscripciones(eventoId) {
   try {
-    const response = await api.get(`/inscripciones?eventoId=${eventoId}`);
-    renderizarInscripciones(response.data);
+    const response = await api.get('/inscripciones');
+    const inscripciones = response.data.filter(
+      (ins) => String(ins.eventoId) === String(eventoId)
+    );
+    renderizarInscripciones(inscripciones);
   } catch (error) {
     mostrarMensaje('Error al cargar inscripciones');
     console.error(error);
@@ -113,30 +116,38 @@ document.getElementById('form-inscripcion').addEventListener('submit', async (e)
   const eventoId       = document.getElementById('select-evento-inscripcion').value;
   const participanteId = document.getElementById('select-participante-inscripcion').value;
 
+  // validación (evita que se manden datos incompletos)
   if (!eventoId || !participanteId) {
     mostrarMensaje('Seleccioná un evento y un participante');
     return;
   }
 
   try {
-    const resCheck = await api.get(`/inscripciones?eventoId=${eventoId}&participanteId=${participanteId}`);
-    if (resCheck.data.length > 0) {
+    const resTodas = await api.get('/inscripciones');
+    const todas = resTodas.data;
+
+    
+    const yaInscripto = todas.some(
+      (ins) => String(ins.eventoId) === String(eventoId) && String(ins.participanteId) === String(participanteId)
+    );
+    if (yaInscripto) {
       mostrarMensaje('El participante ya está inscripto en este evento');
       return;
     }
 
+    
     const resEvento = await api.get(`/eventos/${eventoId}`);
-    const resIns    = await api.get(`/inscripciones?eventoId=${eventoId}`);
-    if (resIns.data.length >= resEvento.data.capacidad) {
+    const inscriptosDelEvento = todas.filter((ins) => String(ins.eventoId) === String(eventoId));
+    if (inscriptosDelEvento.length >= resEvento.data.capacidad) {
       mostrarMensaje('El evento ya alcanzó su capacidad máxima');
       return;
     }
 
     await api.post('/inscripciones', {
-      eventoId:       parseInt(eventoId),
-      participanteId: parseInt(participanteId),
-      fecha:          new Date().toLocaleDateString(),
-      estado:         'Confirmado',
+      eventoId,
+      participanteId,
+      fecha:  new Date().toLocaleDateString(),
+      estado: 'Confirmado',
     });
 
     mostrarMensaje('Participante inscripto correctamente');
