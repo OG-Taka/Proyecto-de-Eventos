@@ -10,47 +10,42 @@
     },
     {
       "nombre": "navidad",
-      "fecha": "2026-06-25",
-      "lugar": "casa de walter",
-      "capacidad": 2,
+      "fecha": "2026-12-25",
+      "lugar": "polo norte",
+      "capacidad": 10,
       "estado": "Abierto",
-      "id": "tS-2Bok4vzs"
+      "id": "MTHHbi7GikU"
     }
   ],
   "participantes": [
     {
-      "id": "1",
-      "nombre": "Martín López",
-      "correo": "martin@email.com",
-      "telefono": "381-555-0173"
-    },
-    {
       "nombre": "Bruno tolosa",
       "correo": "brunotolosa02@gmail.com",
       "telefono": "3333333333",
-      "id": "f_mHU0SttqU"
-    },
-    {
-      "nombre": "jorge rial",
-      "correo": "adlorem@gmail",
-      "telefono": "431423432",
-      "id": "0dod1p0havA"
+      "id": "9RozySvD5pg"
     }
   ],
   "inscripciones": [
     {
       "eventoId": "1",
-      "participanteId": "1",
+      "participanteId": null,
       "fecha": "30/6/2026",
       "estado": "Confirmado",
       "id": "HkI57xpbQgo"
     },
     {
       "eventoId": "1",
-      "participanteId": "f_mHU0SttqU",
+      "participanteId": null,
       "fecha": "30/6/2026",
       "estado": "Confirmado",
       "id": "NoFV8P-tlCs"
+    },
+    {
+      "eventoId": "MTHHbi7GikU",
+      "participanteId": "9RozySvD5pg",
+      "fecha": "30/6/2026",
+      "estado": "Confirmado",
+      "id": "DVwkdD5Cvdk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
