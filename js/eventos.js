@@ -11,7 +11,7 @@ async function cargarEventos() {
   }
 }
 
-function renderizarEventos(eventos) {
+async function renderizarEventos(eventos) {
   const contenedor = document.getElementById('lista-eventos');
   contenedor.innerHTML = '';
 
@@ -20,12 +20,16 @@ function renderizarEventos(eventos) {
     return;
   }
 
-  eventos.forEach((evento) => {
+  for (const evento of eventos) {
+    // contar inscriptos actuales del evento
+    const resIns = await api.get(`/inscripciones?eventoId=${evento.id}`);
+    const inscriptos = resIns.data.length;
+
     const bloque = document.createElement('div');
     bloque.innerHTML = `
       <hr>
       <p><strong>${evento.nombre}</strong> [${evento.estado}]</p>
-      <p>Fecha: ${evento.fecha} | Lugar: ${evento.lugar} | Capacidad: ${evento.capacidad}</p>
+      <p>Fecha: ${evento.fecha} | Lugar: ${evento.lugar} | Inscriptos: ${inscriptos}/${evento.capacidad}</p>
       <button class="btn-editar">Editar</button>
       <button class="btn-eliminar">Eliminar</button>
     `;
@@ -41,7 +45,7 @@ function renderizarEventos(eventos) {
     });
 
     contenedor.appendChild(bloque);
-  });
+  }
 }
 
 // crear / actualizar

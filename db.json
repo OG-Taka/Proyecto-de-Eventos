@@ -1,20 +1,64 @@
 {
   "eventos": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "Taller de JavaScript",
       "fecha": "2025-07-20",
       "lugar": "Aula 3",
       "capacidad": 30,
       "estado": "Abierto"
+    },
+    {
+      "nombre": "navidad",
+      "fecha": "2026-06-25",
+      "lugar": "casa de walter",
+      "capacidad": 2,
+      "estado": "Abierto",
+      "id": "tS-2Bok4vzs"
     }
   ],
   "participantes": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "Martín López",
       "correo": "martin@email.com",
       "telefono": "381-555-0173"
+    },
+    {
+      "nombre": "Bruno tolosa",
+      "correo": "brunotolosa02@gmail.com",
+      "telefono": "3333333333",
+      "id": "f_mHU0SttqU"
+    },
+    {
+      "nombre": "jorge rial",
+      "correo": "adlorem@gmail",
+      "telefono": "431423432",
+      "id": "0dod1p0havA"
     }
-  ]
+  ],
+  "inscripciones": [
+    {
+      "eventoId": null,
+      "participanteId": 1,
+      "fecha": "29/6/2026",
+      "estado": "Confirmado",
+      "id": "OxcWsjn7wCE"
+    },
+    {
+      "eventoId": null,
+      "participanteId": null,
+      "fecha": "29/6/2026",
+      "estado": "Confirmado",
+      "id": "3t4PjTtrx1c"
+    },
+    {
+      "eventoId": 1,
+      "participanteId": 1,
+      "fecha": "29/6/2026",
+      "estado": "Confirmado",
+      "id": "DZw3G2Nfwp4"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
